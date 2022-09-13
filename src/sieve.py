@@ -12,10 +12,13 @@ def sieve(n: int) -> list[int]:
 
     """
     assert n > 0
-    candidates = list(range(2, n + 1))
-    primes = []
+    primes, candidates = [], list(range(2, n+1))
+    while candidates:
+        p = candidates[0]
+        candidates = [i for i in candidates if i % p != 0]
+        primes.append(p)
+    return primes
 
-    i = 0
     while len(primes) != len(candidates):
         p = candidates[i]
         candidates = list(
