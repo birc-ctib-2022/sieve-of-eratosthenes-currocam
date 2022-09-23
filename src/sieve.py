@@ -18,12 +18,3 @@ def sieve(n: int) -> list[int]:
         candidates = [i for i in candidates if i % p != 0]
         primes.append(p)
     return primes
-
-    while len(primes) != len(candidates):
-        p = candidates[i]
-        candidates = list(
-            filter(lambda x: x not in range(p+p, n+1, p), candidates))
-        i += 1
-        primes.append(p)
-
-    return primes
