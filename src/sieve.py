@@ -12,9 +12,9 @@ def sieve(n: int) -> list[int]:
 
     """
     assert n > 0
-    candidates = list(range(2, n + 1))
-    primes = []
-
-    # FIXME: fill out this bit
-
+    primes, candidates = [], list(range(2, n+1))
+    while candidates:
+        p = candidates[0]
+        candidates = [i for i in candidates if i % p != 0]
+        primes.append(p)
     return primes
